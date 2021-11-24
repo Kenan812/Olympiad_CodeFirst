@@ -300,10 +300,10 @@ namespace Olympiad_CodeFirst
                 // Code
 
 
-                foreach (var country in query)
-                {
-                    countries.Add(country);
-                }
+                //foreach (var country in query)
+                //{
+                //    countries.Add(country);
+                //}
 
                 return countries;
             }
