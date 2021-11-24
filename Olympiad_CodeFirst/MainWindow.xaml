@@ -1,0 +1,49 @@
+﻿<Window x:Class="Olympiad_CodeFirst.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Olympiad_CodeFirst"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+
+            <Button Name="insertButton" Content="Insert all data in db" Margin="10,15,0,0"
+                    Width="270" Click="insertButton_Click" HorizontalAlignment="Left"/>
+
+            <Button Name="showSportmenButton" Content="Show all sportmen" Margin="10,15,0,0"
+                    Width="270" Click="showSportmenButton_Click" HorizontalAlignment="Left"/>
+
+            <Button Name="showSportButton" Content="Show all sport types" Margin="10,15,0,0"
+                    Width="270" Click="showSportButton_Click" HorizontalAlignment="Left"/>
+
+            <Button Name="showCountriesButton" Content="Show all countries in competition" Margin="10,15,0,0"
+                    Width="270" Click="showCountriesButton_Click" HorizontalAlignment="Left"/>
+
+            <StackPanel Orientation="Horizontal" Margin="10,15,0,0">
+
+                <Button Name="showSportmanByIdButton" Content="Show sportman by id" 
+                    Width="270" Click="showSportmanByIdButton_Click"/>
+
+                <TextBox Name="sportmanIdTextBox" Width="60" Height="20" 
+                         VerticalAlignment="Bottom" Margin="20,0,0,0"/>
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <DataGrid Grid.Column="1" Name="dataGrid" AutoGenerateColumns="True" HeadersVisibility="All">
+
+        </DataGrid>
+
+
+    </Grid>
+</Window>
