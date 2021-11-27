@@ -38,6 +38,33 @@
             </StackPanel>
 
 
+            <StackPanel Orientation="Horizontal" Margin="10,15,0,0">
+
+                <Button Name="showSportbyId" Content="Show sport by id" 
+                    Width="270" Click="showSportbyId_Click"/>
+
+                <TextBox Name="sportIdTextBox" Width="60" Height="20" 
+                         VerticalAlignment="Bottom" Margin="20,0,0,0"/>
+
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Margin="10,15,0,0">
+
+                <Button Name="showCountrytbyId" Content="Show country by id" 
+                    Width="270" Click="showCountrytbyId_Click"/>
+
+                <TextBox Name="countryIdTextBox" Width="60" Height="20" 
+                         VerticalAlignment="Bottom" Margin="20,0,0,0"/>
+
+            </StackPanel>
+
+
+            <Button Name="showTopCountriesbyMedalsButton" Content="Show top countries by medals" Margin="10,15,0,0"
+                    Width="270" Click="showTopCountriesbyMedalsButton_Click" HorizontalAlignment="Left"/>
+
+            
+            
         </StackPanel>
 
         <DataGrid Grid.Column="1" Name="dataGrid" AutoGenerateColumns="True" HeadersVisibility="All">

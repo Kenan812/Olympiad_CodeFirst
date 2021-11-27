@@ -73,10 +73,68 @@ namespace Olympiad_CodeFirst
         {
             if (sportmanIdTextBox.Text != String.Empty)
             {
-
+                try
+                {
+                    dataGrid.ItemsSource = _ot.GetSportmanById(Int32.Parse(sportmanIdTextBox.Text));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + "\n\nStack Trace: " + ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+        }
 
+        private void showSportbyId_Click(object sender, RoutedEventArgs e)
+        {
+            if (sportIdTextBox.Text != String.Empty)
+            {
+                try
+                {
+                    dataGrid.ItemsSource = _ot.GetSportById(Int32.Parse(sportIdTextBox.Text)); ;
 
+                    dataGrid.Columns[0].Header = "Sport name";
+                    dataGrid.Columns[1].Header = "Number of medals";
+                    dataGrid.Columns[2].Header = "Number of sportman";
+                    dataGrid.Columns[3].Header = "Number of countries";
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + "\n\nStack Trace: " + ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void showCountrytbyId_Click(object sender, RoutedEventArgs e)
+        {
+            if (countryIdTextBox.Text != String.Empty)
+            {
+                try
+                {
+                    dataGrid.ItemsSource = _ot.GetCountryById(Int32.Parse(countryIdTextBox.Text)); ;
+
+                    dataGrid.Columns[0].Header = "Country name";
+                    dataGrid.Columns[1].Header = "Number of medals";
+                    dataGrid.Columns[2].Header = "Number of sportman";
+                    dataGrid.Columns[3].Header = "Number of sports";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + "\n\nStack Trace: " + ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void showTopCountriesbyMedalsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                dataGrid.ItemsSource = _ot.GetTopCountriesByMedals();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\nStack Trace: " + ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
