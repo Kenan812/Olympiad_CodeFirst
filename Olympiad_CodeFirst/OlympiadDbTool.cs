@@ -401,19 +401,65 @@ namespace Olympiad_CodeFirst
 
         public IEnumerable GetTopCountriesByMedals()
         {
-            _db.Sportsmen.Select(x => x).Load();
-            _db.Sports.Select(x => x).Load();
-            _db.SportsSportsmen.Select(x => x).Load();
-            _db.Medals.Select(x => x).Load();
-            _db.Awards.Select(x => x).Load();
-            _db.Countries.Select(x => x).Load();
+            try
+            {
+                ObservableCollection<object> countries = new ObservableCollection<object>();
+
+                var query = (from a in _db.Awards
+                             join s in _db.Sportsmen on a.SportsmanId equals s.Id
+                             join m in _db.Medals on a.MedalId equals m.Id
+                             orderby m.Place
+                             select new { s.Country.CountryName }
+                      ).Distinct();
 
 
-            var query = _db.Countries.OrderBy(c => c.Sportsmen.Select(s => s.Awards).SelectMany(a => a).OrderBy(a => a.Medal.Place)).Select(c => c.CountryName);
+                foreach (var country in query)
+                {
+                    countries.Add(country);
+                }
 
+                return countries;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\n" + ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
             return null;
         }
+
+
+        public IEnumerable GetTopSportsByMedals()
+        {
+            try
+            {
+                ObservableCollection<object> countries = new ObservableCollection<object>();
+
+                var query = (from a in _db.Awards
+                             join s in _db.Sportsmen on a.SportsmanId equals s.Id
+                             join ss in _db.SportsSportsmen on s.Id equals ss.SportsmanId
+                             join sport in _db.Sports on ss.SportId equals sport.Id
+                             join m in _db.Medals on a.MedalId equals m.Id
+                             orderby m.Place
+                             select new { sport.SportName }
+                      ).Distinct();
+
+
+                foreach (var country in query)
+                {
+                    countries.Add(country);
+                }
+
+                return countries;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\n" + ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return null;
+        }
+
 
         #endregion
 

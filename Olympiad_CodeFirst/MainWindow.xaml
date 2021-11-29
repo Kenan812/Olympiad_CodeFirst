@@ -63,8 +63,11 @@
             <Button Name="showTopCountriesbyMedalsButton" Content="Show top countries by medals" Margin="10,15,0,0"
                     Width="270" Click="showTopCountriesbyMedalsButton_Click" HorizontalAlignment="Left"/>
 
-            
-            
+
+            <Button Name="showTopSportsbyMedalsButton" Content="Show top sports by medals" Margin="10,15,0,0"
+                    Width="270" Click="showTopSportsbyMedalsButton_Click" HorizontalAlignment="Left"/>
+
+
         </StackPanel>
 
         <DataGrid Grid.Column="1" Name="dataGrid" AutoGenerateColumns="True" HeadersVisibility="All">

@@ -136,5 +136,17 @@ namespace Olympiad_CodeFirst
                 MessageBox.Show(ex.Message + "\n\nStack Trace: " + ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void showTopSportsbyMedalsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                dataGrid.ItemsSource = _ot.GetTopSportsByMedals();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\nStack Trace: " + ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
